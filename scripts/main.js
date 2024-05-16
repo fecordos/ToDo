@@ -37,8 +37,11 @@
   async function handleAddTodo(e) {
     e.preventDefault();
     const title = getTodoTitleFromForm(e.target);
+
+    if(!title) return;
+
     await addToTodoList(title);
-    displayTodos();
+    //displayTodos();
   }
 
   async function handleDeleteTodo(e) {
@@ -51,7 +54,7 @@
     
     const index = todoList.findIndex((todo) => todo.id === btn.dataset.todoId);
     todoList.splice(index, 1);
-    displayTodos();
+    //displayTodos();
   }
 
   async function addToTodoList(title) {
@@ -79,14 +82,18 @@
       const check = document.createElement("input");
       const deleteBtn = document.createElement("button");
 
+      item.classList = "item";
+
       deleteBtn.type = "button";
       deleteBtn.innerHTML = "&times;";
       deleteBtn.dataset.deleteTodo = true;
       deleteBtn.dataset.todoId = todo.id;
+      deleteBtn.classList = "delete-button";
 
       check.type = "checkbox";
       check.checked = todo.completed;
       check.value = todo.id;
+      check.classList = "check";
 
       label.append(check, todo.title);
       item.append(label, deleteBtn);

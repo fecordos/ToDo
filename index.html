@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ToDos</title>
+  <link rel="icon" type="image/png" href="assets/todo_icon.png">
+  <title>ToDoApp</title>
   <link rel="stylesheet" href="styles/main.css">
   <script src="scripts/main.js" defer></script>
 </head>
 <body>
-  <h1>ToDos List</h1>
-  <form action="index.html" method="get" data-todos-form>
-    <label for="title">What do you want to do?</label>
-    <input type="text" name="title" id="title">
-    <button type="submit">Add</button>
-  </form>
-  <ul data-todos-list></ul>
+  <div class="container">
+    <h1>To-Do List <img src="assets/list.png" alt="list icon"></h1>
+    <form action="index.html" method="get" data-todos-form>
+      <label for="title">What do you want to do?</label>
+      <input type="text" name="title" id="title">
+      <button type="submit" id="addBtn">Add</button>
+    </form>
+    <ul data-todos-list></ul>
+  </div>
 </body>
-</html>
+</html> 

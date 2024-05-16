@@ -1,13 +1,154 @@
+:root {
+  --primary-color: #0a1c3d;
+  --secondary-color: #ff5945;
+  --light-secondary-color: #ffaea5;
+  --dark-secondary-color: #d23a29;
+  --third-color: #edeef0;
+  --white: #fff;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-[data-todos-form]{
-
+html {
+  background: url("/assets/bg.jpg") no-repeat;
 }
 
-[data-todos-list]{
-  
+h1 {
+  position: relative;
+  padding: 1rem;
+  margin: 1rem 0 0 0;
+
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  letter-spacing: 0.2rem;
+  color: var(--primary-color);
+
+  img {
+    position: absolute;
+    top: 22px;
+    margin-left: 0.5rem;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+  margin: 5rem auto;
+
+  background: var(--white);
+  border: none;
+  border-radius: 12px;
+}
+
+[data-todos-form] {
+  display: flex;
+   
+  align-items: center;
+  justify-content: space-between;
+
+  width: 90%;
+  margin: 1.5rem 1rem 0 1rem;
+
+  background: var(--third-color);
+  border-radius: 40px;
+
+  label {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.25rem;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  input {
+    flex: 1;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 40px;
+    outline: none;
+    background: transparent;
+    padding: 1rem;
+    font-weight: 1rem;
+  }
+
+  input:focus, input:hover {
+    border: 1px solid black;
+  }
+
+  #addBtn {
+    width: 5rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: var(--white);
+
+    background: var(--secondary-color);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  #addBtn:hover {
+    background: var(--dark-secondary-color);
+  }
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0.75rem;
+  padding: 0.5rem;
+  border-radius: 40px;
+
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.3rem;
+  color: var(--primary-color);
+
+  background: var(--light-secondary-color);
+
+  .check {
+    margin-right: 0.75rem;
+
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+  }
+ 
+}
+
+.item:checked {
+  text-decoration: line-through;
+  background: var(--third-color);
+}
+
+.delete-button {
+  width: 35px;
+  height: 35px;
+  margin-left: 1rem;
+
+  border: none;
+  border-radius: 50%;
+  outline: none;
+
+  font-size: 1.2rem;
+}
+
+.delete-button:hover {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+[data-todos-list] {
+  width: 80%;
+  margin: 2.5rem;
+   
 }
