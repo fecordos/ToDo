@@ -5,6 +5,8 @@
   const apiUrl = "http://localhost:3081/todos";
   const todoList = await fetch(apiUrl).then((res) => res.json());
 
+  const completionCircle = document.querySelector("#completion-circle");
+
   document
     .querySelector("[data-todos-form]")
     .addEventListener("submit", handleAddTodo);
@@ -17,28 +19,33 @@
 
   displayTodos();
 
-  async function handleUpdateTodo(e){
+  async function handleUpdateTodo(e) {
     const todoId = e.target.value;
     const isCompleted = e.target.checked;
+    
 
     const res = await fetch(`${apiUrl}/${todoId}`, {
       method: "PATCH",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: `{"completed": ${isCompleted}}`,
     });
 
-    if(!res.ok){
+    
+
+    if (!res.ok) {
       e.target.checked = !e.target.checked;
     }
+
+    
   }
 
   async function handleAddTodo(e) {
     e.preventDefault();
     const title = getTodoTitleFromForm(e.target);
 
-    if(!title) return;
+    if (!title) return;
 
     await addToTodoList(title);
     //displayTodos();
@@ -51,7 +58,7 @@
     await fetch(`${apiUrl}/${btn.dataset.todoId}`, {
       method: "DELETE",
     });
-    
+
     const index = todoList.findIndex((todo) => todo.id === btn.dataset.todoId);
     todoList.splice(index, 1);
     //displayTodos();
@@ -72,6 +79,27 @@
   function getTodoTitleFromForm(form) {
     const data = new FormData(form);
     return data.get("title");
+  }
+
+  function updateCompletionCircle(percentage) {
+    
+      const progressBar = document.querySelector('.progress-bar');
+      const progressText = document.getElementById('progress-text');
+      const circumference = 2 * Math.PI * 45; // 2 * π * r (circumference of the circle)
+      const offset = circumference - (percentage / 100) * circumference;
+
+      progressBar.style.strokeDashoffset = offset;
+      progressText.textContent = `${percentage.toFixed(2)}%`;
+
+      // if(percentage === 100) {
+      //   prompt("Congratssss");
+      // }
+
+  }
+
+  function calculateCompletionPercentage() {
+    const completedCount = todoList.filter((todo) => todo.completed).length;
+    return (completedCount / todoList.length) * 100;
   }
 
   function buildTodoItems() {
@@ -99,6 +127,9 @@
       item.append(label, deleteBtn);
       fragment.append(item);
     }
+
+    const completionPercentage = calculateCompletionPercentage();
+    updateCompletionCircle(completionPercentage); 
 
     return fragment;
   }

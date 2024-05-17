@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="assets/todo_icon.png">
-  <title>ToDoApp</title>
-  <link rel="stylesheet" href="styles/main.css">
-  <script src="scripts/main.js" defer></script>
-</head>
-<body>
-  <div class="container">
-    <h1>To-Do List <img src="assets/list.png" alt="list icon"></h1>
-    <form action="index.html" method="get" data-todos-form>
-      <label for="title">What do you want to do?</label>
-      <input type="text" name="title" id="title">
-      <button type="submit" id="addBtn">Add</button>
-    </form>
-    <ul data-todos-list></ul>
-  </div>
-</body>
-</html> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/todo_icon.png" />
+    <title>ToDoApp</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <script src="scripts/main.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>To-Do List <img src="assets/list.png" alt="list icon" /></h1>
+
+        <svg
+          id="completion-circle"
+          width="150"
+          height="150"
+          viewBox="0 -25 100 150"
+        >
+          <circle class="progress-background" cx="50" cy="50" r="45" />
+          <circle class="progress-bar" cx="50" cy="50" r="45" />
+          <text id="progress-text" x="18" y="-44"></text>
+        </svg>
+      </div>
+      <form action="index.html" method="get" data-todos-form>
+        <label for="title">What do you want to do?</label>
+        <input type="text" name="title" id="title" />
+        <button type="submit" id="addBtn">Add</button>
+      </form>
+      <ul data-todos-list></ul>
+    </div>
+
+    <!-- <div class="todo-item">
+    
+    <input type="checkbox" id="todo-checkbox">
+    <label for="todo-checkbox" id="todo-label">Your ToDo Item</label>
+  </div> -->
+  </body>
+</html>
