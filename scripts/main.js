@@ -121,9 +121,14 @@
       check.type = "checkbox";
       check.checked = todo.completed;
       check.value = todo.id;
+     // check.id = "item";
       check.classList = "check";
+       
+      const label1 = document.createElement("label");
+     // label1.for = "item";
+      label1.append(todo.title);
 
-      label.append(check, todo.title);
+      label.append(check, label1);
       item.append(label, deleteBtn);
       fragment.append(item);
     }
