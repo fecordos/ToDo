@@ -11,8 +11,18 @@
   <body>
     <div class="container">
       <div class="header">
-        <h1>To-Do List <img src="assets/list.png" alt="list icon" /></h1>
-
+        <div>
+          <button id="reverseTodos">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path fill-rule="evenodd" d="M6.97 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06L8.25 4.81V16.5a.75.75 0 0 1-1.5 0V4.81L3.53 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5Zm9.53 4.28a.75.75 0 0 1 .75.75v11.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 1 1 1.06-1.06l3.22 3.22V7.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
+            </svg>            
+          </button>
+        </div>
+        <div class="titleOfApp">
+          <h1>To-Do List</h1>
+          <img src="assets/list.png" alt="list icon" />
+        </div>
+          
         <svg
           id="completion-circle"
           width="150"
@@ -21,7 +31,7 @@
         >
           <circle class="progress-background" cx="50" cy="50" r="45" />
           <circle class="progress-bar" cx="50" cy="50" r="45" />
-          <text id="progress-text" x="18" y="-44"></text>
+          <text id="progress-text" x="50" y="-50"></text>
         </svg>
       </div>
       <form action="index.html" method="get" data-todos-form>

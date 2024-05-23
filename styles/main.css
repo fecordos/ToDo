@@ -42,20 +42,33 @@ html {
   background: linear-gradient(#beedf6, #cfd3b7);
 }
 
-h1 {
-  position: relative;
-  padding: 1rem;
-  margin: 1rem 0 0 0;
+#reverseTodos {
+  width: 60px;
+  height: 60px;
+  
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
 
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 2.25rem;
-  letter-spacing: 0.2rem;
-  color: var(--primary-color);
+  cursor: pointer;
+}
 
-  img {
-    position: absolute;
-    top: 22px;
-    margin-left: 0.5rem;
+#reverseTodos:hover {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.titleOfApp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    padding: 1rem;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-size: 2.25rem;
+    letter-spacing: 0.2rem;
+    color: var(--primary-color);
   }
 }
 
@@ -82,10 +95,11 @@ h1 {
   }
 
   #progress-text {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-      sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 1.35rem;
     font-weight: 600;
+    text-anchor: middle;
+    dominant-baseline: middle;
     transform: rotate(90deg); /* Rotate text back to normal */
   }
 }
@@ -182,8 +196,6 @@ h1 {
   .check:checked {
     accent-color: rgb(145, 210, 145);
   }
-
- 
 
   .check:checked + label {
     color: gray;

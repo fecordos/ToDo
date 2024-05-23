@@ -5,8 +5,6 @@
   const apiUrl = "http://localhost:3081/todos";
   const todoList = await fetch(apiUrl).then((res) => res.json());
 
-  const completionCircle = document.querySelector("#completion-circle");
-
   document
     .querySelector("[data-todos-form]")
     .addEventListener("submit", handleAddTodo);
@@ -16,13 +14,15 @@
   document
     .querySelector("[data-todos-list]")
     .addEventListener("change", handleUpdateTodo);
+  document
+    .querySelector("#reverseTodos")
+    .addEventListener("click", displayReversedTodos);
 
   displayTodos();
 
   async function handleUpdateTodo(e) {
     const todoId = e.target.value;
     const isCompleted = e.target.checked;
-    
 
     const res = await fetch(`${apiUrl}/${todoId}`, {
       method: "PATCH",
@@ -32,13 +32,9 @@
       body: `{"completed": ${isCompleted}}`,
     });
 
-    
-
     if (!res.ok) {
       e.target.checked = !e.target.checked;
     }
-
-    
   }
 
   async function handleAddTodo(e) {
@@ -82,19 +78,15 @@
   }
 
   function updateCompletionCircle(percentage) {
-    
-      const progressBar = document.querySelector('.progress-bar');
-      const progressText = document.getElementById('progress-text');
-      const circumference = 2 * Math.PI * 45; // 2 * π * r (circumference of the circle)
-      const offset = circumference - (percentage / 100) * circumference;
+    const progressBar = document.querySelector(".progress-bar");
+    const progressText = document.getElementById("progress-text");
+    const circumference = 2 * Math.PI * 45; // 2 * π * r (circumference of the circle)
+    const offset = circumference - (percentage / 100) * circumference;
 
-      progressBar.style.strokeDashoffset = offset;
-      progressText.textContent = `${percentage.toFixed(2)}%`;
+    progressBar.style.strokeDashoffset = offset;
+    progressText.textContent = `${renderPercentage(percentage)}%`;
 
-      // if(percentage === 100) {
-      //   prompt("Congratssss");
-      // }
-
+    congratulationsMsg(percentage);
   }
 
   function calculateCompletionPercentage() {
@@ -102,11 +94,25 @@
     return (completedCount / todoList.length) * 100;
   }
 
+  function renderPercentage(percentage) {
+    if (Number.isInteger(percentage)) {
+      return percentage;
+    }
+    return percentage.toFixed(2);
+  }
+
+  function congratulationsMsg(percentage) {
+    if (percentage === 100) {
+      console.log("ieeeeeeeeeei");
+    }
+  }
+
   function buildTodoItems() {
     const fragment = document.createDocumentFragment();
     for (const todo of todoList) {
       const item = document.createElement("li");
       const label = document.createElement("label");
+      const titleLabel = document.createElement("label");
       const check = document.createElement("input");
       const deleteBtn = document.createElement("button");
 
@@ -121,25 +127,31 @@
       check.type = "checkbox";
       check.checked = todo.completed;
       check.value = todo.id;
-     // check.id = "item";
-      check.classList = "check";
-       
-      const label1 = document.createElement("label");
-     // label1.for = "item";
-      label1.append(todo.title);
 
-      label.append(check, label1);
+      check.classList = "check";
+
+      titleLabel.append(todo.title);
+
+      label.append(check, titleLabel);
       item.append(label, deleteBtn);
       fragment.append(item);
     }
 
     const completionPercentage = calculateCompletionPercentage();
-    updateCompletionCircle(completionPercentage); 
+    updateCompletionCircle(completionPercentage);
 
     return fragment;
   }
 
   function displayTodos() {
+    const items = buildTodoItems();
+    const list = document.querySelector("[data-todos-list]");
+    list.innerHTML = "";
+    list.append(items);
+  }
+
+  function displayReversedTodos() {
+    todoList.reverse();
     const items = buildTodoItems();
     const list = document.querySelector("[data-todos-list]");
     list.innerHTML = "";
