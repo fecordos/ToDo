@@ -8,20 +8,15 @@
     {
       "id": "04d1",
       "title": "prepare a coffee with milk",
-      "completed": true
+      "completed": false
     },
     {
       "id": "e869",
       "title": "make a smoothie",
       "completed": true
-    },
-    {
-      "id": "61c4",
-      "title": "banane",
-      "completed": false
     }
   ],
   "settings": {
-    "isReversed": true
+    "isReversed": false
   }
 }

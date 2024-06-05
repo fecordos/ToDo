@@ -4,9 +4,10 @@
 (async function () {
   const apiUrl = "http://localhost:3081";
   const todoList = await fetch(`${apiUrl}/todos`).then((res) => res.json());
-  let isReversed = await fetch(`${apiUrl}/settings`)
-    .then((res) => res.json())
-    .then((data) => data.isReversed);
+  let isReversed = await fetch(`${apiUrl}/settings`).then((res) => res.json()).then((data) => data.isReversed);
+
+  const modal = document.querySelector("#congratulations-modal");
+  const closeButton = document.querySelector(".close-button");
 
   document
     .querySelector("[data-todos-form]")
@@ -20,6 +21,10 @@
   document
     .querySelector("#reverseTodos")
     .addEventListener("click", handleReversedList);
+  document
+    .addEventListener("click", handleCloseModal);
+  closeButton
+    .addEventListener("click", hideModal);
 
   displayTodos();
 
@@ -116,7 +121,7 @@
 
   function congratulationsMsg(percentage) {
     if (percentage === 100) {
-      console.log("ieeeeeeeeeei");
+      showModal();
     }
   }
 
@@ -158,26 +163,34 @@
 
   function displayTodos() {
     const list = document.querySelector("[data-todos-list]");
-    
     list.innerHTML = "";
-
     const todosToDisplay = isReversed ? [...todoList].reverse() : todoList;
     const itemsFragment = buildTodoItems(todosToDisplay);
 
     list.appendChild(itemsFragment);
-
     changeReverseBtnColor(isReversed);
-    
   }
 
-  function changeReverseBtnColor(isReversed){
+  function changeReverseBtnColor(isReversed) {
     const reverseBtn = document.querySelector("#reverseTodos");
 
-    if(isReversed) {
+    if (isReversed) {
       reverseBtn.style.background = "#0a1c3d";
       reverseBtn.style.color = "#fff";
     }
-
   }
 
+  function showModal() {
+    modal.style.display = "block";
+  }
+
+  function hideModal() {
+    modal.style.display = "none";
+  }
+
+  function handleCloseModal(e) {
+    if (e.target === modal) {
+      hideModal();
+    }
+  }
 })();
