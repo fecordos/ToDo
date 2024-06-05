@@ -1,19 +1,42 @@
 {
   "todos": [
     {
-      "id": "e276",
-      "title": "ddsd",
+      "id": "b7a4",
+      "title": "add more notes",
       "completed": true
     },
     {
-      "id": "3e5a",
-      "title": "csscd",
+      "id": "04d1",
+      "title": "prepare a coffee with milk",
+      "completed": false
+    },
+    {
+      "id": "7c7b",
+      "title": "de",
       "completed": true
     },
     {
-      "id": "c540",
-      "title": "ds",
+      "id": "0597",
+      "title": "terra",
+      "completed": false
+    },
+    {
+      "id": "7edc",
+      "title": "rata",
+      "completed": false
+    },
+    {
+      "id": "e869",
+      "title": "make a smoothie",
       "completed": true
+    },
+    {
+      "id": "61c4",
+      "title": "banane",
+      "completed": false
     }
-  ]
+  ],
+  "settings": {
+    "isReversed": true
+  }
 }

@@ -2,8 +2,11 @@
 
 //IIFE
 (async function () {
-  const apiUrl = "http://localhost:3081/todos";
-  const todoList = await fetch(apiUrl).then((res) => res.json());
+  const apiUrl = "http://localhost:3081";
+  const todoList = await fetch(`${apiUrl}/todos`).then((res) => res.json());
+  let isReversed = await fetch(`${apiUrl}/settings`)
+    .then((res) => res.json())
+    .then((data) => data.isReversed);
 
   document
     .querySelector("[data-todos-form]")
@@ -16,7 +19,7 @@
     .addEventListener("change", handleUpdateTodo);
   document
     .querySelector("#reverseTodos")
-    .addEventListener("click", displayReversedTodos);
+    .addEventListener("click", handleReversedList);
 
   displayTodos();
 
@@ -24,7 +27,7 @@
     const todoId = e.target.value;
     const isCompleted = e.target.checked;
 
-    const res = await fetch(`${apiUrl}/${todoId}`, {
+    const res = await fetch(`${apiUrl}/todos/${todoId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -44,24 +47,22 @@
     if (!title) return;
 
     await addToTodoList(title);
-    //displayTodos();
   }
 
   async function handleDeleteTodo(e) {
     const btn = e.target.closest("[data-delete-todo]");
     if (!btn) return;
 
-    await fetch(`${apiUrl}/${btn.dataset.todoId}`, {
+    await fetch(`${apiUrl}/todos/${btn.dataset.todoId}`, {
       method: "DELETE",
     });
 
     const index = todoList.findIndex((todo) => todo.id === btn.dataset.todoId);
     todoList.splice(index, 1);
-    //displayTodos();
   }
 
   async function addToTodoList(title) {
-    const newTodo = await fetch(apiUrl, {
+    const newTodo = await fetch(`${apiUrl}/todos`, {
       method: "POST",
       body: JSON.stringify({ title, completed: false }),
       headers: {
@@ -70,6 +71,18 @@
     }).then((res) => res.json());
 
     todoList.push(newTodo);
+  }
+
+  async function handleReversedList() {
+    isReversed = !isReversed;
+
+    await fetch("http://localhost:3081/settings", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: `{ "isReversed": ${isReversed} }`,
+    });
   }
 
   function getTodoTitleFromForm(form) {
@@ -107,9 +120,9 @@
     }
   }
 
-  function buildTodoItems() {
+  function buildTodoItems(todos) {
     const fragment = document.createDocumentFragment();
-    for (const todo of todoList) {
+    for (const todo of todos) {
       const item = document.createElement("li");
       const label = document.createElement("label");
       const titleLabel = document.createElement("label");
@@ -144,17 +157,12 @@
   }
 
   function displayTodos() {
-    const items = buildTodoItems();
     const list = document.querySelector("[data-todos-list]");
     list.innerHTML = "";
-    list.append(items);
-  }
 
-  function displayReversedTodos() {
-    todoList.reverse();
-    const items = buildTodoItems();
-    const list = document.querySelector("[data-todos-list]");
-    list.innerHTML = "";
-    list.append(items);
+    const todosToDisplay = isReversed ? [...todoList].reverse() : todoList;
+    const itemsFragment = buildTodoItems(todosToDisplay);
+
+    list.appendChild(itemsFragment);
   }
 })();

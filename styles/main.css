@@ -1,8 +1,8 @@
 :root {
   --primary-color: #0a1c3d;
-  --secondary-color: #ff5945;
-  --light-secondary-color: #ffaea5;
-  --dark-secondary-color: #d23a29;
+  --secondary-color: #247933;
+  --light-secondary-color: #5faf4c;
+  --dark-secondary-color: #0a5c0e;
   --third-color: #edeef0;
   --fourth-primary-color: rgb(5, 246, 74);
   --white: #fff;
@@ -16,6 +16,7 @@
 
 html {
   background: url("/assets/bg.jpg") no-repeat;
+  background-size: cover;
 }
 
 .container {
@@ -27,7 +28,7 @@ html {
   width: 50%;
   margin: 1rem auto;
 
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.5);
   border: none;
   border-radius: 12px;
 }
@@ -54,7 +55,7 @@ html {
 }
 
 #reverseTodos:hover {
-  background: var(--primary-color);
+  background: var(--dark-secondary-color);
   color: var(--white);
 }
 
@@ -194,7 +195,7 @@ html {
   }
 
   .check:checked {
-    accent-color: rgb(145, 210, 145);
+    accent-color: var(--light-secondary-color);
   }
 
   .check:checked + label {
@@ -206,11 +207,11 @@ html {
 }
 
 .item:hover {
-  background: linear-gradient(#3db9c7, #c5abe3);
+  background: linear-gradient(#26be4f, #cde9c0);
 }
 
 .item:has(.check:checked) {
-  background: #a0b7a5;
+  background: #85ae8d;
 }
 
 .delete-button {
@@ -226,7 +227,7 @@ html {
 }
 
 .delete-button:hover {
-  background: var(--primary-color);
+  background: var(--dark-secondary-color);
   color: var(--white);
   cursor: pointer;
 }
