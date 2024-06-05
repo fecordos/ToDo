@@ -158,11 +158,26 @@
 
   function displayTodos() {
     const list = document.querySelector("[data-todos-list]");
+    
     list.innerHTML = "";
 
     const todosToDisplay = isReversed ? [...todoList].reverse() : todoList;
     const itemsFragment = buildTodoItems(todosToDisplay);
 
     list.appendChild(itemsFragment);
+
+    changeReverseBtnColor(isReversed);
+    
   }
+
+  function changeReverseBtnColor(isReversed){
+    const reverseBtn = document.querySelector("#reverseTodos");
+
+    if(isReversed) {
+      reverseBtn.style.background = "#0a1c3d";
+      reverseBtn.style.color = "#fff";
+    }
+
+  }
+
 })();
