@@ -9,49 +9,60 @@
     <script src="scripts/main.js" defer></script>
   </head>
   <body>
-
-    <div id="congratulations-modal" class="modal">
-      <div class="modal-content">
+    <main class="main">
+      <div id="congratulations-modal" class="modal">
+        <div class="modal-content">
           <span class="close-button">&times;</span>
           <div class="confetti">🎉🎉🎉</div>
           <h1>Congratulations!</h1>
           <p>You have completed 100% of your tasks!</p>
           <div class="confetti">🎉🎉🎉</div>
+        </div>
       </div>
-  </div>
 
-  
-    <div class="container">
-      <div class="header">
-        <div>
-          <button id="reverseTodos">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-              <path fill-rule="evenodd" d="M6.97 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06L8.25 4.81V16.5a.75.75 0 0 1-1.5 0V4.81L3.53 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5Zm9.53 4.28a.75.75 0 0 1 .75.75v11.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 1 1 1.06-1.06l3.22 3.22V7.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
-            </svg>            
-          </button>
+      <div class="container">
+        <div class="header">
+          <div class="app-title">
+         
+              <div class="title">
+                <img src="assets/list.png" alt="list icon" />
+                <h1>My tasks</h1>
+                
+              </div>
+              <button id="reverseTodos">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 25 35"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6.97 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06L8.25 4.81V16.5a.75.75 0 0 1-1.5 0V4.81L3.53 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5Zm9.53 4.28a.75.75 0 0 1 .75.75v11.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 1 1 1.06-1.06l3.22 3.22V7.5a.75.75 0 0 1 .75-.75Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button> 
+          </div>
+
+          <svg id="completion-circle" viewBox="0 -25 80 150">
+            <circle class="progress-background" cx="50" cy="50" r="45" />
+            <circle class="progress-bar" cx="50" cy="50" r="45" />
+            <text id="progress-text" x="50" y="-50"></text>
+          </svg>
         </div>
-        <div class="titleOfApp">
-          <h1>To-Do List</h1>
-          <img src="assets/list.png" alt="list icon" />
-        </div>
-          
-        <svg
-          id="completion-circle"
-          width="150"
-          height="150"
-          viewBox="0 -25 100 150"
-        >
-          <circle class="progress-background" cx="50" cy="50" r="45" />
-          <circle class="progress-bar" cx="50" cy="50" r="45" />
-          <text id="progress-text" x="50" y="-50"></text>
-        </svg>
+        <form action="index.html" method="get" data-todos-form>
+          <label for="title" hidden>What do you want to do?</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="What do you want to do?"
+          />
+          <button type="submit" id="addBtn">Add</button>
+        </form>
+        <ul data-todos-list></ul>
       </div>
-      <form action="index.html" method="get" data-todos-form>
-        <label for="title" hidden>What do you want to do?</label>
-        <input type="text" name="title" id="title" placeholder="What do you want to do?" />
-        <button type="submit" id="addBtn">Add</button>
-      </form>
-      <ul data-todos-list></ul>
-    </div>
+    </main>
   </body>
 </html>

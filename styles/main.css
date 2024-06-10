@@ -14,9 +14,15 @@
   box-sizing: border-box;
 }
 
-html {
+/* html {
   background: url("/assets/bg.jpg") no-repeat;
   background-size: cover;
+}
+
+.main {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
 }
 
 .container {
@@ -25,8 +31,9 @@ html {
   justify-content: center;
   align-items: center;
 
-  width: 50%;
-  margin: 1rem auto;
+  margin: 1rem auto; 
+
+  width: 90%;
 
   background: rgba(255, 255, 255, 0.5);
   border: none;
@@ -39,17 +46,22 @@ html {
   justify-content: space-around;
 
   width: 100%;
+  
 
   background: linear-gradient(#beedf6, #cfd3b7);
 }
 
 #reverseTodos {
-  width: 60px;
-  height: 60px;
-  
-  border: none;
-  border-radius: 50%;
+   
+  width: 3rem;
+  height: 3rem;
+
+  margin: .8rem 0 0 0;
   padding: 12px;
+  
+  border: 1px solid black;
+  border-radius: 50%;
+  
 
   cursor: pointer;
 }
@@ -57,12 +69,16 @@ html {
 #reverseTodos:hover {
   background: var(--dark-secondary-color);
   color: var(--white);
+   
 }
 
 .titleOfApp {
+   
   display: flex;
   justify-content: center;
   align-items: center;
+
+  
 
   h1 {
     padding: 1rem;
@@ -74,8 +90,9 @@ html {
 }
 
 #completion-circle {
-  width: 150px;
-  height: 150px;
+
+  width: 10rem;
+  height: 10rem;
   transform: rotate(-90deg);
 
   .progress-background,
@@ -90,8 +107,8 @@ html {
 
   .progress-bar {
     stroke: var(--fourth-primary-color);
-    stroke-dasharray: 283; /* 2 * π * 45 (circumference of the circle) */
-    stroke-dashoffset: 283; /* Start with the circle completely unfilled */
+    stroke-dasharray: 283;  
+    stroke-dashoffset: 283;  
     transition: stroke-dashoffset 0.3s ease;
   }
 
@@ -101,7 +118,7 @@ html {
     font-weight: 600;
     text-anchor: middle;
     dominant-baseline: middle;
-    transform: rotate(90deg); /* Rotate text back to normal */
+    transform: rotate(90deg);  
   }
 }
 
@@ -171,11 +188,18 @@ html {
   border-radius: 20px 40px 40px 20px;
 
   font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 1.4rem;
+  font-size: clamp(1rem, 0.75rem + 1.5vw, 1.15rem);
   color: var(--primary-color);
+  word-break: break-all;
+   
 
   background: var(--third-color);
 
+  label > label {
+    background-color: red;
+     max-inline-size: 80%;
+  }
+  
   .check {
     width: 35px;
     height: 35px;
@@ -217,13 +241,11 @@ html {
 .delete-button {
   width: 50px;
   height: 50px;
-
+  font-size: 1.2rem;
   background: var(--light-secondary-color);
   border: none;
   border-radius: 0 40px 40px 0;
   outline: none;
-
-  font-size: 1.2rem;
 }
 
 .delete-button:hover {
@@ -235,7 +257,7 @@ html {
 [data-todos-list] {
   width: 80%;
   margin: 1.25rem;
-}
+} */
 
 /* Modal container */
 .modal {
@@ -276,4 +298,331 @@ html {
 /* Confetti */
 .confetti {
   font-size: 2em;
+} 
+
+  .header {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+  
+     margin: 1rem;
+
+   background: none;
+
+    .titleOfApp {
+      font-size: .2rem;
+    }
+
+    #completion-circle {
+      margin: 0;
+      padding: 0;
+
+    }
+     
+  }
+} */
+
+/*Mobile-First Approach - base style*/
+
+body {
+  font-family: Arial, sans-serif;
+
+  background: url("/assets/bg.jpg") no-repeat;
+  background-size: cover;
+}
+
+.container {
+  padding: 1.5rem;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .app-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    width: 100%;
+
+    font-size: 0.7rem;
+
+    .title {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    #reverseTodos {
+      width: 2.5rem;
+      height: 2.5rem;
+
+      border: 1px solid black;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+
+  #completion-circle {
+    width: 5em;
+    height: 5em;
+    transform: rotate(-90deg);
+
+    .progress-background,
+    .progress-bar {
+      fill: none;
+      stroke-width: 10;
+    }
+
+    .progress-background {
+      stroke: var(--third-color);
+    }
+
+    .progress-bar {
+      stroke: var(--fourth-primary-color);
+      stroke-dasharray: 283;
+      stroke-dashoffset: 283;
+      transition: stroke-dashoffset 0.3s ease;
+    }
+
+    #progress-text {
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.item {
+  /* background-color: var(--white);
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 100%; */
+
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+
+  margin: 0.75rem;
+  padding: 0;
+  border-radius: 20px 40px 40px 20px;
+
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: clamp(1rem, 0.75rem + 1.5vw, 1.15rem);
+  color: var(--primary-color);
+  word-break: break-all;
+   
+
+  background: var(--third-color);
+
+
+
+  label > label {
+    background-color: red;
+     max-inline-size: 80%;
+  }
+  
+  .check {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+
+    margin: 0 0.75rem 0 0.25rem;
+
+    position: absolute;
+    left: -45px;
+    top: 8px;
+  }
+
+  .check + label {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+  }
+
+  .check:checked {
+    accent-color: var(--light-secondary-color);
+  }
+
+  .check:checked + label {
+    color: gray;
+    position: absolute;
+    top: 12px;
+    text-decoration: line-through;
+  }
+
+}
+
+.todo-content {
+  word-wrap: break-word;
+}
+
+/* Base button style */
+button {
+  padding: 10px;
+  border: none;
+  color: var(--primary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  /* font-size: 16px; */
+}
+
+button:hover {
+  background-color: #0056b3;
+  color: var(--white);
+}
+
+/* Base form style */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0.8rem 0;
+}
+
+/* Input fields */
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.delete-button {
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
+  background: var(--light-secondary-color);
+  border: none;
+  border-radius: 0 40px 40px 0;
+  outline: none;
+}
+
+.delete-button:hover {
+  background: var(--dark-secondary-color);
+  color: var(--white);
+  cursor: pointer;
+}
+
+/* Tablet styles */
+@media (min-width: 600px) {
+  .container {
+    width: 80%;
+    
+    margin: 1rem auto;
+    padding: 0;
+
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 12px;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+    padding: 0.5rem;
+
+    background: linear-gradient(#beedf6, #cfd3b7);
+
+    #completion-circle {
+      width: 5rem;
+      height: 5rem;
+
+      margin-right: 3rem;
+    }
+  }
+
+  .item {
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  input[type="text"] {
+    font-size: 18px;
+    padding: 12px;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+  .container {
+    width: 60%;
+  }
+
+  .item {
+    padding: 25px;
+    margin-bottom: 20px;
+  }
+
+  form {
+    flex-direction: row;
+    justify-content: center;
+     gap: 0;
+
+    #addBtn {
+      width: 7rem;
+      padding: 1rem;
+      font-size: 1.5rem;
+      color: var(--white);
+  
+      background: var(--secondary-color);
+      border: none;
+      border-radius: 0 40px 40px 0;
+      cursor: pointer;
+      outline: none;
+    }
+  
+    #addBtn:hover {
+      background: var(--dark-secondary-color);
+    }
+
+  }
+
+  button {
+    font-size: 20px;
+    padding: 14px;
+  }
+
+  input[type="text"] {
+    /* font-size: 20px;
+    padding: 14px; */
+
+    width: 100%;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 40px 0 0 40px;
+    outline: none;
+    background: transparent;
+    padding: 1rem;
+    font-weight: 1rem;
+
+    &:focus,
+    &:hover {
+      border: 1px solid black;
+    }
+  }
 }

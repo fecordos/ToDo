@@ -113,7 +113,10 @@
   }
 
   function renderPercentage(percentage) {
-    if (Number.isInteger(percentage)) {
+    if(Number.isNaN(percentage)){
+      return 0;
+    }
+    else if (Number.isInteger(percentage)) {
       return percentage;
     }
     return percentage.toFixed(2);
@@ -145,11 +148,9 @@
       check.type = "checkbox";
       check.checked = todo.completed;
       check.value = todo.id;
-
       check.classList = "check";
 
       titleLabel.append(todo.title);
-
       label.append(check, titleLabel);
       item.append(label, deleteBtn);
       fragment.append(item);
