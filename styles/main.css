@@ -14,250 +14,10 @@
   box-sizing: border-box;
 }
 
-/* html {
+html {
   background: url("/assets/bg.jpg") no-repeat;
   background-size: cover;
 }
-
-.main {
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  margin: 1rem auto; 
-
-  width: 90%;
-
-  background: rgba(255, 255, 255, 0.5);
-  border: none;
-  border-radius: 12px;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-
-  width: 100%;
-  
-
-  background: linear-gradient(#beedf6, #cfd3b7);
-}
-
-#reverseTodos {
-   
-  width: 3rem;
-  height: 3rem;
-
-  margin: .8rem 0 0 0;
-  padding: 12px;
-  
-  border: 1px solid black;
-  border-radius: 50%;
-  
-
-  cursor: pointer;
-}
-
-#reverseTodos:hover {
-  background: var(--dark-secondary-color);
-  color: var(--white);
-   
-}
-
-.titleOfApp {
-   
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  
-
-  h1 {
-    padding: 1rem;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    font-size: 2.25rem;
-    letter-spacing: 0.2rem;
-    color: var(--primary-color);
-  }
-}
-
-#completion-circle {
-
-  width: 10rem;
-  height: 10rem;
-  transform: rotate(-90deg);
-
-  .progress-background,
-  .progress-bar {
-    fill: none;
-    stroke-width: 10;
-  }
-
-  .progress-background {
-    stroke: var(--third-color);
-  }
-
-  .progress-bar {
-    stroke: var(--fourth-primary-color);
-    stroke-dasharray: 283;  
-    stroke-dashoffset: 283;  
-    transition: stroke-dashoffset 0.3s ease;
-  }
-
-  #progress-text {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    font-size: 1.35rem;
-    font-weight: 600;
-    text-anchor: middle;
-    dominant-baseline: middle;
-    transform: rotate(90deg);  
-  }
-}
-
-[data-todos-form] {
-  display: flex;
-
-  align-items: center;
-  justify-content: space-between;
-
-  width: 90%;
-  margin: 1.5rem 1rem 0 1rem;
-
-  background: var(--third-color);
-  border-radius: 40px;
-
-  label {
-    font-family: "Courier New", Courier, monospace;
-    font-size: 1.25rem;
-    letter-spacing: 0.1rem;
-    font-weight: 600;
-    text-align: center;
-  }
-
-  input {
-    width: 100%;
-    font-size: 1.25rem;
-    border: none;
-    border-radius: 40px 0 0 40px;
-    outline: none;
-    background: transparent;
-    padding: 1rem;
-    font-weight: 1rem;
-  }
-
-  input:focus,
-  input:hover {
-    border: 1px solid black;
-  }
-
-  #addBtn {
-    width: 7rem;
-    padding: 1rem;
-    font-size: 1.5rem;
-    color: var(--white);
-
-    background: var(--secondary-color);
-    border: none;
-    border-radius: 0 40px 40px 0;
-    cursor: pointer;
-    outline: none;
-  }
-
-  #addBtn:hover {
-    background: var(--dark-secondary-color);
-  }
-}
-
-.item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  position: relative;
-
-  margin: 0.75rem;
-  padding: 0;
-  border-radius: 20px 40px 40px 20px;
-
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: clamp(1rem, 0.75rem + 1.5vw, 1.15rem);
-  color: var(--primary-color);
-  word-break: break-all;
-   
-
-  background: var(--third-color);
-
-  label > label {
-    background-color: red;
-     max-inline-size: 80%;
-  }
-  
-  .check {
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-
-    margin: 0 0.75rem 0 0.25rem;
-
-    position: absolute;
-    left: -45px;
-    top: 8px;
-  }
-
-  .check + label {
-    position: absolute;
-    top: 12px;
-    left: 15px;
-  }
-
-  .check:checked {
-    accent-color: var(--light-secondary-color);
-  }
-
-  .check:checked + label {
-    color: gray;
-    position: absolute;
-    top: 12px;
-    text-decoration: line-through;
-  }
-}
-
-.item:hover {
-  background: linear-gradient(#26be4f, #cde9c0);
-}
-
-.item:has(.check:checked) {
-  background: #85ae8d;
-}
-
-.delete-button {
-  width: 50px;
-  height: 50px;
-  font-size: 1.2rem;
-  background: var(--light-secondary-color);
-  border: none;
-  border-radius: 0 40px 40px 0;
-  outline: none;
-}
-
-.delete-button:hover {
-  background: var(--dark-secondary-color);
-  color: var(--white);
-  cursor: pointer;
-}
-
-[data-todos-list] {
-  width: 80%;
-  margin: 1.25rem;
-} */
 
 /* Modal container */
 .modal {
@@ -298,42 +58,6 @@
 /* Confetti */
 .confetti {
   font-size: 2em;
-} 
-
-  .header {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-  
-     margin: 1rem;
-
-   background: none;
-
-    .titleOfApp {
-      font-size: .2rem;
-    }
-
-    #completion-circle {
-      margin: 0;
-      padding: 0;
-
-    }
-     
-  }
-} */
-
-/*Mobile-First Approach - base style*/
-
-body {
-  font-family: Arial, sans-serif;
-
-  background: url("/assets/bg.jpg") no-repeat;
-  background-size: cover;
-}
-
-.container {
-  padding: 1.5rem;
-  margin: auto;
 }
 
 .header {
@@ -341,25 +65,56 @@ body {
   flex-direction: column;
   align-items: center;
 
+  margin: 1rem;
+
+  background: none;
+
+  .titleOfApp {
+    font-size: 0.2rem;
+  }
+
+  #completion-circle {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/*Mobile-First Approach - base style*/
+ 
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin: 0.5rem 1rem;
+
   .app-title {
     display: flex;
-    justify-content: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
 
     width: 100%;
 
-    font-size: 0.7rem;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-size: 1rem;
 
     .title {
       display: flex;
       justify-content: center;
       gap: 1rem;
+
+      img {
+        display: none;
+      }
     }
 
     #reverseTodos {
       width: 2.5rem;
       height: 2.5rem;
+
+      padding: 0.5rem;
 
       border: 1px solid black;
       border-radius: 50%;
@@ -402,57 +157,40 @@ body {
 }
 
 .item {
-  /* background-color: var(--white);
+  background-color: var(--white);
   border: 1px solid #ddd;
-  padding: 15px;
-  margin-bottom: 10px;
+  padding: 1rem;
+  margin: 0 0.35rem 0.6rem 0.35rem;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  max-width: 100%; */
-
+  max-width: 100%;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  position: relative;
-
-  margin: 0.75rem;
-  padding: 0;
-  border-radius: 20px 40px 40px 20px;
-
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: clamp(1rem, 0.75rem + 1.5vw, 1.15rem);
-  color: var(--primary-color);
-  word-break: break-all;
-   
 
-  background: var(--third-color);
+  word-wrap: break-word;
 
-
-
-  label > label {
-    background-color: red;
-     max-inline-size: 80%;
-  }
-  
   .check {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 
-    margin: 0 0.75rem 0 0.25rem;
-
-    position: absolute;
-    left: -45px;
-    top: 8px;
+    margin: 0 0.75rem 0 0;
   }
 
-  .check + label {
-    position: absolute;
-    top: 12px;
-    left: 15px;
+  & > label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .check {
+      flex-shrink: 0;
+    }
   }
 
   .check:checked {
@@ -461,15 +199,8 @@ body {
 
   .check:checked + label {
     color: gray;
-    position: absolute;
-    top: 12px;
     text-decoration: line-through;
   }
-
-}
-
-.todo-content {
-  word-wrap: break-word;
 }
 
 /* Base button style */
@@ -492,24 +223,30 @@ form {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  margin: 0.8rem 0;
+  margin: 0.8rem 0.35rem;
 }
 
 /* Input fields */
 input[type="text"] {
   padding: 10px;
-  font-size: 16px;
+  font-size: 1rem;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
 
 .delete-button {
-  width: 50px;
-  height: 50px;
-  font-size: 1.2rem;
-  background: var(--light-secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+  font-size: 2rem;
+  padding: 1.25rem;
+
+  background: var(--white);
   border: none;
-  border-radius: 0 40px 40px 0;
+  border-radius: 50%;
   outline: none;
 }
 
@@ -523,12 +260,11 @@ input[type="text"] {
 @media (min-width: 600px) {
   .container {
     width: 80%;
-    
+
     margin: 1rem auto;
-    padding: 0;
+    padding: 0 0 .1rem 0;
 
     background: rgba(255, 255, 255, 0.5);
-    border: none;
     border-radius: 12px;
   }
 
@@ -538,14 +274,25 @@ input[type="text"] {
     align-items: center;
     justify-content: space-around;
 
-    width: 100%;
-    padding: 0.5rem;
+    padding: 1.25rem;
 
-    background: linear-gradient(#beedf6, #cfd3b7);
+    margin: 0;
+
+    background: linear-gradient(#bef6d9, #b587d8);
+
+    .app-title {
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      .title > img {
+        display: block;
+      }
+    }
 
     #completion-circle {
-      width: 5rem;
-      height: 5rem;
+      width: 7rem;
+      height: 7rem;
 
       margin-right: 3rem;
     }
@@ -554,11 +301,23 @@ input[type="text"] {
   .item {
     padding: 20px;
     margin-bottom: 15px;
+
+    & > label {
+      font-size: clamp(1.3rem, 0.75rem + 1.5vw, 1.15rem);
+    }
+
+    .check:checked + label {
+      font-size: clamp(1.3rem, 0.75rem + 1.5vw, 1.15rem);
+    }
   }
 
   button {
     font-size: 18px;
     padding: 12px;
+  }
+
+  .delete-button {
+    font-size: 2.5rem;
   }
 
   input[type="text"] {
@@ -581,25 +340,24 @@ input[type="text"] {
   form {
     flex-direction: row;
     justify-content: center;
-     gap: 0;
+    gap: 0;
 
     #addBtn {
       width: 7rem;
       padding: 1rem;
       font-size: 1.5rem;
       color: var(--white);
-  
+
       background: var(--secondary-color);
       border: none;
       border-radius: 0 40px 40px 0;
       cursor: pointer;
       outline: none;
     }
-  
+
     #addBtn:hover {
       background: var(--dark-secondary-color);
     }
-
   }
 
   button {
@@ -607,10 +365,11 @@ input[type="text"] {
     padding: 14px;
   }
 
-  input[type="text"] {
-    /* font-size: 20px;
-    padding: 14px; */
+  .delete-button {
+    font-size: 2.5rem;
+  }
 
+  input[type="text"] {
     width: 100%;
     font-size: 1.25rem;
     border: none;
@@ -619,6 +378,7 @@ input[type="text"] {
     background: transparent;
     padding: 1rem;
     font-weight: 1rem;
+    border: 1px solid #717171;
 
     &:focus,
     &:hover {
