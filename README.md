@@ -9,10 +9,11 @@
 
 ## Application Functionality:
 <ul>
-<li>Add a todo in the list</li>
-<li>Delete todos from the list</li>
-<li>Reverse todos list</li>
+<li>Add a to-do in the list</li>
+<li>Delete a to-do from the list</li>
+<li>Reverse the to-do list</li>
 <li>(Un)check the (un)completed tasks</li>
+<li>Visualize the progress of the to-do list</li>
 </ul>
 
 ## main page: 
@@ -20,13 +21,13 @@
 
 ![image](https://github.com/fecordos/ToDo/assets/61146410/bbac1870-608f-4d66-813e-4cddc1038ce7)
 
-## todos list completion progress:
+## to-do list completion progress:
 ![image](https://github.com/fecordos/ToDo/assets/61146410/3b3e3744-04cb-436f-ac93-6835d2e9d9b2)
 
 ## responsive design: <br />
 ![image](https://github.com/fecordos/ToDo/assets/61146410/63ab789d-cb92-41a1-b217-c6ecc3f31f7b)
 
-## reverse todos list button: <br />
+## reverse to-do list button: <br />
 ![image](https://github.com/fecordos/ToDo/assets/61146410/d9f3e552-1231-4106-9723-07beeb23e77e)
  
 ![image](https://github.com/fecordos/ToDo/assets/61146410/b686900c-67dc-4129-8552-278253b16b95)
