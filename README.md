@@ -1,7 +1,6 @@
-```diff
+ 
 # :clipboard: ToDo App 
-## +main page: ```
-
+## +main page: 
 ![image](https://github.com/fecordos/ToDo/assets/61146410/65ce0070-5bd8-4f31-9984-b821db0d855d)
 
 ![image](https://github.com/fecordos/ToDo/assets/61146410/bbac1870-608f-4d66-813e-4cddc1038ce7)
