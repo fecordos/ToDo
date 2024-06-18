@@ -15,10 +15,19 @@
  
 ![image](https://github.com/fecordos/ToDo/assets/61146410/b686900c-67dc-4129-8552-278253b16b95)
 
-## todos are completed: <br />
+## todos completed: <br />
 ![image](https://github.com/fecordos/ToDo/assets/61146410/b6cd09dc-9e45-4e9d-9f07-d18d4b75a02c)
 
+# Project
+HTML, CSS, JavaScript
 
+## Application Functionality:
+<ul>
+<li>Add a todo in the list</li>
+<li>Delete todo</li>
+<li>Reverse todos list</li>
+<li>Check/uncheck the (un)completed tasks</li>
+</ul>
 
 
 
